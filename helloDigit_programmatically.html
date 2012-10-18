@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hello Dijit Programmatically</title>
+<!-- load Dojo -->
+<link rel="stylesheet" href="style.css" media="screen">
+<link rel="stylesheet"
+	href="//ajax.googleapis.com/ajax/libs/dojo/1.8.0/dijit/themes/claro/claro.css">
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js"
+	data-dojo-config="async: true"></script>
+</head>
+<!-- set the claro class on our body element -->
+<body class="claro">
+	<div id="appLayout" class="demoLayout"></div>
+	<script>
+		require(["dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dijit/form/Button", "dojo/domReady!" ], 
+				function(BorderContainer, ContentPane, Button) {
+					var appLayout = new BorderContainer({
+						design: 'headline'
+					},"appLayout");
+				
+					var botao = new Button({
+						label: 'Botao 1'
+					});
+					
+					var content = new ContentPane({
+						region: 'center',
+						content: 'Centralizado'
+					});
+					
+					content.addChild(botao);
+					
+					appLayout.addChild(content);
+
+					appLayout.addChild(
+							new ContentPane({
+								region: 'top',
+								"class":  "edgePanel",
+								content: "Header"
+							})
+					);
+					appLayout.addChild(
+							new ContentPane({
+								region: 'left',
+								id: "leftCol", "class": "edgePanel",
+								content: "Left"
+							})
+					);			
+					appLayout.startup();
+				}
+		);
+	</script>
+</body>
+</html>

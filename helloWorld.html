@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dojo Started</title>
+</head>
+<body>
+	<h1 id="greeting">Dojo Started</h1>
+	<input id="myButton" type="button" value="CLick me">
+	
+	<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js" data-dojo-config="async: true"></script>
+	<script type="text/javascript" >
+	require(["dojo/on","dojo/dom","dojo/domReady!"], function(on, dom) {
+		var myButton = dom.byId("myButton");
+		var greeting = dom.byId("greeting");
+		
+		on(myButton, "click", function(event) {
+			greeting.innerHTML = "Button Clicked";
+		});
+		
+	});
+	</script>
+</body>
+</html>
